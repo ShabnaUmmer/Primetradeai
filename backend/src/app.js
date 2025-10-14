@@ -13,7 +13,11 @@ const taskRoutes = require('./routes/taskRoutes');
 const app = express();
 
 // Middleware
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: 'https://your-frontend.onrender.com', // your deployed frontend URL
+  credentials: true, // if using cookies
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -62,5 +66,6 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
   console.log(`Health check: http://localhost:${PORT}/api/health`);
 });
+
 
 module.exports = app;
