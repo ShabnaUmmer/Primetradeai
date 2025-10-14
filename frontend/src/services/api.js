@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-const isProduction = process.env.NODE_ENV === 'production';
-const API_BASE_URL = isProduction ? '' : 'http://localhost:5000';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
 const API = axios.create({
   baseURL: `${API_BASE_URL}/api`,
@@ -31,5 +30,6 @@ API.interceptors.response.use(
 
 
 export default API;
+
 
 
