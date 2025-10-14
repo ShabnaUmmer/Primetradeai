@@ -1,9 +1,11 @@
 import axios from 'axios';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';;
+const isProduction = process.env.NODE_ENV === 'production';
+const API_BASE_URL = isProduction ? '' : 'http://localhost:5000';
 
 const API = axios.create({
   baseURL: `${API_BASE_URL}/api`,
+  timeout: 10000,
 });
 
 // Add request interceptor to include token in all requests
@@ -29,4 +31,5 @@ API.interceptors.response.use(
 
 
 export default API;
+
 
