@@ -15,7 +15,7 @@ const app = express();
 // Middleware
 // app.use(cors());
 app.use(cors({
-  origin: 'https://your-frontend.onrender.com', // your deployed frontend URL
+  origin: 'https://your-frontend.onrender.com', // deployed frontend URL
   credentials: true, // if using cookies
 }));
 app.use(express.json());
@@ -69,3 +69,4 @@ app.listen(PORT, () => {
 
 
 module.exports = app;
+
